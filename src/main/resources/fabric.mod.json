@@ -1,0 +1,49 @@
+{
+	"schemaVersion": 1,
+	"id": "oldworld",
+	"version": "${version}",
+	"name": "Old World",
+	"description": "Discorver the Old World of Magic!",
+	"authors": [
+		"Alberto"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/olivialba/Old-World"
+	},
+	"license": "MIT",
+	"icon": "assets/oldworld/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.alba.oldworld.OldWorld"
+		],
+		"client": [
+			"net.alba.oldworld.OldWorldClient"
+		],
+        "cardinal-components-entity": [
+            "net.alba.oldworld.registry.OldComponents"
+        ],
+		"fabric-datagen": [
+			"net.alba.oldworld.OldWorldDataGenerator"
+		]
+	},
+	"mixins": [
+		"oldworld.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.19",
+		"minecraft": "~1.19.4",
+		"java": ">=17",
+		"fabric-api": "*",
+		"geckolib": ">=4.1.3"
+	},
+    "custom": {
+        "cardinal-components": [
+            "oldworld:mana"
+        ]
+    },
+	"suggests": {
+		"another-mod": "*"
+	}
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "oldworld:fireball",
+    "oldworld:combustion",
+    "oldworld:meteor",
+    "oldworld:bite",
+    "oldworld:petrify"
+  ]
+}

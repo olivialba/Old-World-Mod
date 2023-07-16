@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "oldworld:item/empty",
+        "layer1": "oldworld:item/crystal_overlay"
+    }
+  }

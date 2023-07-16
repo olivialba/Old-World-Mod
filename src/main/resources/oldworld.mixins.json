@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "net.alba.oldworld.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+        "PlayerEntityMixin",
+        "MouseMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

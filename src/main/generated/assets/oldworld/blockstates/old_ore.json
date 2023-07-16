@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "oldworld:block/old_ore"
+    }
+  }
+}

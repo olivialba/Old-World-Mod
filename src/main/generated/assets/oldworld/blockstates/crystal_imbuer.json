@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "oldworld:block/crystal_imbuer",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "oldworld:block/crystal_imbuer"
+    },
+    "facing=south": {
+      "model": "oldworld:block/crystal_imbuer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "oldworld:block/crystal_imbuer",
+      "y": 270
+    }
+  }
+}

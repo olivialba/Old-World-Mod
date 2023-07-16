@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "old_ingot",
+  "ingredient": {
+    "item": "oldworld:old_ore"
+  },
+  "result": "oldworld:old_ingot"
+}
