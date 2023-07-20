@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "oldworld:item/ribbon_green",
+        "layer1": "oldworld:item/scroll_overlay"
+    }
+  }

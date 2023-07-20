@@ -3,7 +3,7 @@ package net.alba.oldworld.block.entity;
 import org.jetbrains.annotations.Nullable;
 
 import net.alba.oldworld.OldWorld;
-import net.alba.oldworld.item.crystals.crystalTemplate;
+import net.alba.oldworld.item.scroll.grimoireScroll;
 import net.alba.oldworld.registry.OldBlockEntities;
 import net.alba.oldworld.registry.OldItems;
 import net.alba.oldworld.screen.CrystalImbuerBlock.CrystalImbuerScreenHandler;
@@ -165,7 +165,7 @@ public class CrystalImbuerBlockEntity extends BlockEntity implements NamedScreen
             if (crystalSlotStack.isEmpty()) {
                 continue;
             }
-            else if (crystalSlotStack.getItem() instanceof crystalTemplate crystal) {    
+            else if (crystalSlotStack.getItem() instanceof grimoireScroll crystal) {    
                 String spell = crystal.getSpellKey();
 
                 spellData.putString("SP" + i, spell);

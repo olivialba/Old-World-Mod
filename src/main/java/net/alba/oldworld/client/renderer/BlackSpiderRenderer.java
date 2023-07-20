@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 @Environment(EnvType.CLIENT)
-public class BlackSpiderRenderer extends GeoEntityRenderer<BlackSpiderEntity>{
+public class BlackSpiderRenderer extends GeoEntityRenderer<BlackSpiderEntity> {
 
     public BlackSpiderRenderer(Context renderManager) {
         super(renderManager, new BlackSpiderModel());

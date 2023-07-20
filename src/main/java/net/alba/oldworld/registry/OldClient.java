@@ -6,7 +6,8 @@ import net.alba.oldworld.client.hud.ManaHudOverlay;
 import net.alba.oldworld.client.renderer.BallBasicRenderer;
 import net.alba.oldworld.client.renderer.BlackSpiderRenderer;
 import net.alba.oldworld.client.renderer.CrystalRenderer;
-import net.alba.oldworld.item.crystals.crystalTemplate;
+import net.alba.oldworld.client.renderer.EarthGolemRenderer;
+import net.alba.oldworld.item.scroll.grimoireScroll;
 import net.alba.oldworld.magic.OldSpellMap;
 import net.alba.oldworld.particles.BeamParticle;
 import net.alba.oldworld.screen.CrystalImbuerBlock.CrystalImbuerScreen;
@@ -30,6 +31,8 @@ public class OldClient {
 
         // Entities Renderer
         EntityRendererRegistry.register(OldEntities.BLACK_SPIDER, BlackSpiderRenderer::new);
+        EntityRendererRegistry.register(OldEntities.EARTH_GOLEM, EarthGolemRenderer::new);
+
         EntityRendererRegistry.register(OldEntities.CRYSTAL_PROJECTILE, CrystalRenderer::new);
         EntityRendererRegistry.register(OldEntities.BASIC_BALL_PROJECTILE, BallBasicRenderer::new);
 
@@ -37,9 +40,9 @@ public class OldClient {
         HandledScreens.register(OldScreenHandlers.CRYSTAL_IMBUER_SCREEN_HANDLER, CrystalImbuerScreen::new);
         HudRenderCallback.EVENT.register(new ManaHudOverlay());
 
-        // Crystals
-        for (Item crystalItem : OldSpellMap.CRYSTAL_ITEM_LIST) {
-            ColorProviderRegistry.ITEM.register((stack, tintIndex) -> ((crystalTemplate) stack.getItem()).getColor(tintIndex), crystalItem);
+        // Scroll Item Colors
+        for (Item scrollItem : OldSpellMap.SCROLL_ITEM_LIST) {
+            ColorProviderRegistry.ITEM.register((stack, tintIndex) -> ((grimoireScroll) stack.getItem()).getColor(tintIndex), scrollItem);
         }
 
         // Keys

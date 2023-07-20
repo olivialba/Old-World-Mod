@@ -30,6 +30,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(OldBlocks.CRYSTAl_IMBUER);
 
         blockStateModelGenerator.registerParentedItemModel(OldItems.BLACK_SPIDER_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerParentedItemModel(OldItems.EARTH_GOLEM_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+
     }
 
     @Override
@@ -43,12 +45,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(OldItems.OLD_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(OldItems.OLD_HOE, Models.HANDHELD);
 
-        for (Item crystalItem : OldSpellMap.CRYSTAL_ITEM_LIST) {
-            itemModelGenerator.register(crystalItem, colorCrystal("template_crystal"));
+        for (Item crystalItem : OldSpellMap.SCROLL_ITEM_LIST) {
+            itemModelGenerator.register(crystalItem, colorScroll("template_scroll"));
         }
     }
 
-    public static Model colorCrystal(String parent) {
+    public static Model colorScroll(String parent) {
         return new Model(Optional.of(new Identifier(OldWorld.MOD_ID, "item/" + parent)), Optional.empty());
     }
 }

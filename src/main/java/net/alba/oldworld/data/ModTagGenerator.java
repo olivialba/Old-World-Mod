@@ -18,7 +18,7 @@ public class ModTagGenerator extends ItemTagProvider {
     @Override
     protected void configure(WrapperLookup arg) {
 
-        for (Item crystalItem : OldSpellMap.CRYSTAL_ITEM_LIST) {
+        for (Item crystalItem : OldSpellMap.SCROLL_ITEM_LIST) {
             getOrCreateTagBuilder(OldItems.TAG_SPELL_CRYSTALS).add(crystalItem);
         }      
     }

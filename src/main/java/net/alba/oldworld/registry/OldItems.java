@@ -46,6 +46,8 @@ public class OldItems {
 
     // SPAWN EGG
     public static final Item BLACK_SPIDER_SPAWN_EGG = registerItem("black_spider_spawn_egg", new SpawnEggItem(OldEntities.BLACK_SPIDER, 0x333E48, 0x7C868E, settings()));
+    public static final Item EARTH_GOLEM_SPAWN_EGG = registerItem("earth_golem_spawn_egg", new SpawnEggItem(OldEntities.EARTH_GOLEM, 0x964B00, 0x808080, settings()));
+
 
     public static void addItemsToItemGroup() {
         addItemToItemGroup(OldItemGroup.OLD_WORLD, DEBUG_TOOL);
@@ -57,15 +59,15 @@ public class OldItems {
         addItemToItemGroup(OldItemGroup.OLD_WORLD, OLD_HOE);
 
         addItemToItemGroup(OldItemGroup.OLD_WORLD, OLD_INGOT);
-        addItemToItemGroup(OldItemGroup.OLD_WORLD, BLACK_SPIDER_SPAWN_EGG);
-
         addItemToItemGroup(OldItemGroup.OLD_WORLD, GRIMOIRE_BASIC);
+
+        addItemToItemGroup(OldItemGroup.OLD_WORLD, BLACK_SPIDER_SPAWN_EGG);
+        addItemToItemGroup(OldItemGroup.OLD_WORLD, EARTH_GOLEM_SPAWN_EGG);
     }
 
     public static FabricItemSettings settings() {
         return new FabricItemSettings();
     }
-
     public static FabricItemSettings settingMaxCount() {
         return new FabricItemSettings().maxCount(1);
     }
@@ -73,11 +75,9 @@ public class OldItems {
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(OldWorld.MOD_ID, name), item);
     }
-
     private static ToolItem registerToolItem(String name, ToolItem toolItem) {
         return Registry.register(Registries.ITEM, new Identifier(OldWorld.MOD_ID, name), toolItem);
     }
-
     private static void addItemToItemGroup(ItemGroup group, Item item) {
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
     }

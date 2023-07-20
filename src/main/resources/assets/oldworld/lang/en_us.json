@@ -6,6 +6,7 @@
     
     "item.oldworld.old_ingot": "Old Ingot",
     "item.oldworld.black_spider_spawn_egg": "Black Spider Spawn Egg",
+    "item.oldworld.earth_golem_spawn_egg": "Earth Golem Spawn Egg",
     
     "item.oldworld.old_hammer": "Old Hammer",
     "item.oldworld.old_sword": "Old Sword",
@@ -19,12 +20,12 @@
         "item.oldworld.grimoire_basic.tooltip_2" : "Can be imbued with 3 spells",
         "item.oldworld.grimoire_basic.tooltip_3" : "Spells imbued: %d",
 
-    "item.oldworld.crystals.template" : "Magic Crystal",
-        "item.oldworld.crystals.tooltip.fireball" : "A spell that launch a fireball",
-        "item.oldworld.crystals.tooltip.combustion" : "A spell that sets the enemy on fire",
-        "item.oldworld.crystals.tooltip.meteor" : "A spell that summons a meteor",
-        "item.oldworld.crystals.tooltip.bite" : "A spell that summons a mouths from the ground",
-        "item.oldworld.crystals.tooltip.petrify" : "A spell that petrify any living entity",
+    "item.oldworld.grim_scroll.template" : "Grimoire's Scroll",
+        "item.oldworld.grim_scroll.tooltip.fireball" : "A spell that launch a fireball",
+        "item.oldworld.grim_scroll.tooltip.combustion" : "A spell that sets the enemy on fire",
+        "item.oldworld.grim_scroll.tooltip.meteor" : "A spell that summons a meteor",
+        "item.oldworld.grim_scroll.tooltip.bite" : "A spell that summons a mouths from the ground",
+        "item.oldworld.grim_scroll.tooltip.petrify" : "A spell that petrify any living entity",
 
     "effect.oldworld.petrify" : "Petrify",
 

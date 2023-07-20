@@ -2,6 +2,7 @@ package net.alba.oldworld.registry;
 
 import net.alba.oldworld.OldWorld;
 import net.alba.oldworld.entity.mobs.BlackSpiderEntity;
+import net.alba.oldworld.entity.mobs.EarthGolemEntity;
 import net.alba.oldworld.entity.projectiles.BallBasicEntity;
 import net.alba.oldworld.entity.projectiles.CrystalProjectileEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -17,6 +18,8 @@ public class OldEntities {
 
     // Entities MOB
     public static final EntityType<BlackSpiderEntity> BLACK_SPIDER = Registry.register(Registries.ENTITY_TYPE, new Identifier(OldWorld.MOD_ID, "black_spider"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BlackSpiderEntity::new).dimensions(EntityDimensions.fixed(1.5F, 1.75F)).build());
+    public static final EntityType<EarthGolemEntity> EARTH_GOLEM = Registry.register(Registries.ENTITY_TYPE, new Identifier(OldWorld.MOD_ID, "earth_golem"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, EarthGolemEntity::new).dimensions(EntityDimensions.fixed(1.5F, 2F)).build());
+
 
     // Entities PROJECTILE
     public static final EntityType<CrystalProjectileEntity> CRYSTAL_PROJECTILE = Registry.register(Registries.ENTITY_TYPE, new Identifier(OldWorld.MOD_ID, "crystal_projectile"), FabricEntityTypeBuilder.<CrystalProjectileEntity>create(SpawnGroup.MISC, CrystalProjectileEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F)).trackRangeChunks(5).trackedUpdateRate(10).build());
@@ -24,5 +27,6 @@ public class OldEntities {
 
     public static void registerEntities() {
         FabricDefaultAttributeRegistry.register(OldEntities.BLACK_SPIDER, BlackSpiderEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(OldEntities.EARTH_GOLEM, EarthGolemEntity.setAttributes());
     }
 }       

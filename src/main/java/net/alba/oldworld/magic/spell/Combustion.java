@@ -34,7 +34,7 @@ public class Combustion extends SpellRay {
                 entity.setOnFireFor(6);
             }
         }
-        ((ServerWorld) world).spawnParticles(ParticleTypes.FLAME, blockPos.getX() + 0.5, blockPos.getY() + 0.9, blockPos.getZ() + 0.5, 60, 0.5, 0.25, 0.5, 0.2); 
+        ((ServerWorld) world).spawnParticles(ParticleTypes.FLAME, blockPos.getX() + 0.5, blockPos.getY() + 0.9, blockPos.getZ() + 0.5, 40, 0, 0.5, 0, 0.2); 
     }
 
     @Nullable

@@ -1,4 +1,4 @@
-package net.alba.oldworld.item.crystals;
+package net.alba.oldworld.item.scroll;
 
 import java.util.List;
 
@@ -11,17 +11,18 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
-public class crystalTemplate extends Item {
-    private static final Text NAME = Text.translatable("item.oldworld.crystals.template");
+public class grimoireScroll extends Item {
+    private static final String TOOLTIP = "item.oldworld.grim_scroll.tooltip.";
+    private static final String NAME = "item.oldworld.grim_scroll.template";
     private final int colorTexture;
-    private final String tooltipText;
     private final String spellKey;
+    private final Formatting nameColor;
 
-    public crystalTemplate(Settings settings, String tooltipText, String key, int colorTexture) {
+    public grimoireScroll(Settings settings, String key, int colorTexture, Formatting color) {
         super(settings);
         this.colorTexture = colorTexture;
-        this.tooltipText = tooltipText;
         this.spellKey = key;
+        this.nameColor = color;
     }
 
     public String getSpellKey() {
@@ -34,17 +35,17 @@ public class crystalTemplate extends Item {
 
     @Override
     public boolean hasGlint(ItemStack stack) {
-        return false;
+        return true;
     }
 
     @Override
     public Text getName(ItemStack stack) {
-        return NAME;
+        return Text.translatable(NAME).formatted(nameColor);
     }
 
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable(tooltipText).formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable(TOOLTIP + spellKey).formatted(Formatting.GRAY));
     }
 }

@@ -12,6 +12,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -19,7 +20,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 public class GrimoireBasic extends MagicItems {
-    private static final String Error = "Error: can't find spell in the SpellMap";
+    private static final String Error = "Error: can't find spell in the SpellMap. This may be due to a change in the Mod's registry.";
 
     public GrimoireBasic(Settings settings) {
         super(settings);
@@ -35,13 +36,18 @@ public class GrimoireBasic extends MagicItems {
         return false;
     }
 
-    private Spell getSpell(ItemStack mainHand, PlayerEntity player) {
+    private static Spell getSpell(ItemStack mainHand, PlayerEntity player) {
         NbtCompound grimoireModNbt = mainHand.getSubNbt(OldWorld.MOD_ID);
         if (grimoireModNbt == null) {
             return null;
         }
-        String spellTag = "SP" + MagicUtil.get(grimoireModNbt);
-        Spell currentSpell = OldSpellMap.REGISTRY_SPELL.get(new Identifier(grimoireModNbt.getString(spellTag)));
+        String spellIdentifier = grimoireModNbt.getString("SP" + MagicUtil.get(grimoireModNbt));
+        if (spellIdentifier.isEmpty()) {
+            player.sendMessage(Text.literal("No spell found in index '" + MagicUtil.get(grimoireModNbt) + "'")
+                .fillStyle(Style.EMPTY.withColor(Formatting.AQUA)), true);
+            return null;
+        }
+        Spell currentSpell = OldSpellMap.REGISTRY_SPELL.get(new Identifier(spellIdentifier)); // find Spell in the SPELL REGISTRY
         if (currentSpell == null) {
             player.sendMessage(Text.literal(Error).formatted(Formatting.RED));
         }

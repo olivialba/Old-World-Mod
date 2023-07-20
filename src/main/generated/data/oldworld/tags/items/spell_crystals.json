@@ -5,6 +5,7 @@
     "oldworld:combustion",
     "oldworld:meteor",
     "oldworld:bite",
-    "oldworld:petrify"
+    "oldworld:petrify",
+    "oldworld:teleport"
   ]
 }
