@@ -1,5 +1,6 @@
 package net.alba.oldworld.item.tools;
 
+import net.alba.oldworld.entity.projectiles.PlaceHolder;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -21,8 +22,9 @@ public class DebugTool extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
         if (!world.isClient()) {
-            //MagicUtil.removeMana(user, 10);
-            //user.sendMessage(Text.literal("Mana: " + MagicUtil.getMana(user)));
+            PlaceHolder beam = new PlaceHolder(world, user);
+            beam.setPosition(user.getPos());
+            world.spawnEntity(beam);
         }
         return TypedActionResult.success(stack);
     }

@@ -7,6 +7,7 @@ import net.alba.oldworld.client.renderer.BallBasicRenderer;
 import net.alba.oldworld.client.renderer.BlackSpiderRenderer;
 import net.alba.oldworld.client.renderer.CrystalRenderer;
 import net.alba.oldworld.client.renderer.EarthGolemRenderer;
+import net.alba.oldworld.client.renderer.PlaceHolderRenderer;
 import net.alba.oldworld.item.scroll.grimoireScroll;
 import net.alba.oldworld.magic.OldSpellMap;
 import net.alba.oldworld.particles.BeamParticle;
@@ -35,6 +36,7 @@ public class OldClient {
 
         EntityRendererRegistry.register(OldEntities.CRYSTAL_PROJECTILE, CrystalRenderer::new);
         EntityRendererRegistry.register(OldEntities.BASIC_BALL_PROJECTILE, BallBasicRenderer::new);
+        EntityRendererRegistry.register(OldEntities.PLACE, PlaceHolderRenderer::new);   // TEST
 
         // Screens - HUD
         HandledScreens.register(OldScreenHandlers.CRYSTAL_IMBUER_SCREEN_HANDLER, CrystalImbuerScreen::new);

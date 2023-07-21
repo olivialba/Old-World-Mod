@@ -5,6 +5,7 @@ import net.alba.oldworld.entity.mobs.BlackSpiderEntity;
 import net.alba.oldworld.entity.mobs.EarthGolemEntity;
 import net.alba.oldworld.entity.projectiles.BallBasicEntity;
 import net.alba.oldworld.entity.projectiles.CrystalProjectileEntity;
+import net.alba.oldworld.entity.projectiles.PlaceHolder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
@@ -19,6 +20,9 @@ public class OldEntities {
     // Entities MOB
     public static final EntityType<BlackSpiderEntity> BLACK_SPIDER = Registry.register(Registries.ENTITY_TYPE, new Identifier(OldWorld.MOD_ID, "black_spider"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BlackSpiderEntity::new).dimensions(EntityDimensions.fixed(1.5F, 1.75F)).build());
     public static final EntityType<EarthGolemEntity> EARTH_GOLEM = Registry.register(Registries.ENTITY_TYPE, new Identifier(OldWorld.MOD_ID, "earth_golem"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, EarthGolemEntity::new).dimensions(EntityDimensions.fixed(1.5F, 2F)).build());
+
+    // TEST
+    public static final EntityType<PlaceHolder> PLACE = Registry.register(Registries.ENTITY_TYPE, new Identifier(OldWorld.MOD_ID, "place"), FabricEntityTypeBuilder.<PlaceHolder>create(SpawnGroup.MISC, PlaceHolder::new).dimensions(EntityDimensions.fixed(.5F, .5F)).build());
 
 
     // Entities PROJECTILE

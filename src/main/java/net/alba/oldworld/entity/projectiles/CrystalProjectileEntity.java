@@ -5,7 +5,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -13,7 +12,7 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
 
-public class CrystalProjectileEntity extends MODProjectileEntity {
+public class CrystalProjectileEntity extends OldWorldProjectile {
     private float damage = 0;
     private StatusEffectInstance status = null;
     private boolean shatter = false;
@@ -53,7 +52,8 @@ public class CrystalProjectileEntity extends MODProjectileEntity {
         }
     }
     
-    protected ParticleEffect getParticleType() {
-        return ParticleTypes.AMBIENT_ENTITY_EFFECT;
+    @Override
+    protected void spawnParticleTrail(double d, double e, double f) {
+        this.world.addParticle(ParticleTypes.SMOKE, d, e + 0.3, f, 0.0, 0.0, 0.0);
     }
 }
