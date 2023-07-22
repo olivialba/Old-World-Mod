@@ -16,6 +16,7 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.World.ExplosionSourceType;
 
+@SuppressWarnings("deprecation")
 public class FireOrbEntity extends ThrownItemEntity {
     private float explosionStength = 0;
 
@@ -40,16 +41,22 @@ public class FireOrbEntity extends ThrownItemEntity {
 	protected Item getDefaultItem() {
 		return OldItems.FIRE_ORB; 
 	}
-
+    
     public void tick() {
         super.tick();
-        Vec3d vec3d = this.getVelocity();
-        double d = this.getX() + vec3d.x;
-        double e = this.getY() + vec3d.y;
-        double f = this.getZ() + vec3d.z;
-        for (int i = 0; i < 2; i++) {
-            this.world.addParticle(OldParticles.FIRE, d, e + 0.1, f, 0.0, 0.0, 0.0);
-            this.world.addParticle(ParticleTypes.SMOKE, d, e + 0.1, f, 0.0, 0.0, 0.0);
+        Entity entity = this.getOwner();
+        if (this.world.isClient || (entity == null || !entity.isRemoved()) && this.world.isChunkLoaded(this.getBlockPos())) {
+            Vec3d vec3d = this.getVelocity();
+            double d = this.getX() + vec3d.x;
+            double e = this.getY() + vec3d.y + 0.3;
+            double f = this.getZ() + vec3d.z;
+            for (int i = 0; i < 2; i++) {
+                this.world.addParticle(OldParticles.FIRE, d, e, f, 0.0, 0.0, 0.0);
+                this.world.addParticle(ParticleTypes.LARGE_SMOKE, d, e, f, 0.0, 0.0, 0.0);
+            }
+        }
+        else {
+            this.discard();
         }
     }
  

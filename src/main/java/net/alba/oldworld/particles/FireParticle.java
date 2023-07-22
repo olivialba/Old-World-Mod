@@ -19,16 +19,15 @@ public class FireParticle extends SpriteBillboardParticle {
         this.spriteProvider = spriteProvider; //Sets the sprite provider from above to the sprite provider in the constructor parameters
         this.maxAge = 17; //100 ticks = 5 seconds
         this.scale = 0.25f;
-        this.velocityX = velX; //The velX from the constructor parameters
+        this.velocityX = velX; 
         this.velocityY = velY;
         this.velocityZ = velZ;
         this.x = x; //The x from the constructor parameters
         this.y = y;
         this.z = z;
         this.gravityStrength = 0; //Allows the particle to slowly fall
-        this.collidesWithWorld = true;
-        this.alpha = 1.0f; //Setting the alpha to 1.0f means there will be no opacity change until the alpha value is changed
-        //this.setColor(0, 191, 255);
+        this.collidesWithWorld = false;
+        this.alpha = 1.0f; //Setting the alpha to 1.0f means there will be no opacity change until the alpha value is changed;
         this.setSpriteForAge(spriteProvider); //Required
     }
 
@@ -37,17 +36,16 @@ public class FireParticle extends SpriteBillboardParticle {
         this.prevPosY = this.y;
         this.prevPosZ = this.z;
         this.prevAngle = this.angle; //required for rotating the particle
-        if (this.age++ >= this.maxAge || this.onGround || this.scale <= 0 || this.alpha <= 0) { //Despawns the particle if the age has reached the max age, or if the scale is 0
+        if (this.age++ >= this.maxAge || this.alpha <= 0.0F) { //Despawns the particle if the age has reached the max age, or if the scale is 0
             this.markDead(); //Despawns the particle
         } 
         else {
-            if (this.age < 7) {
-                this.scale -= 0.004;
-            }
             if (this.age > 8) {
                 this.alpha -= 0.05f;
             }
-
+            this.velocityX += (double)(this.random.nextFloat() / 1000.0F * (float)(this.random.nextBoolean() ? 1 : -1));
+            this.velocityY += (double)(this.random.nextFloat() / 1000.0F * (float)(this.random.nextBoolean() ? 1 : -1));
+            this.velocityZ += (double)(this.random.nextFloat() / 1000.0F * (float)(this.random.nextBoolean() ? 1 : -1));
             this.setSpriteForAge(this.spriteProvider); //Animates the particle if needed
             this.move(this.velocityX, this.velocityY, this.velocityZ);
         }
