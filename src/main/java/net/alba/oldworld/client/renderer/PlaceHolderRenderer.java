@@ -18,13 +18,14 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RotationAxis;
-import net.minecraft.util.math.Vec2f;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 
 @Environment(EnvType.CLIENT)
 public class PlaceHolderRenderer extends EntityRenderer<PlaceHolder> {
-    private static final Identifier BEAM_TEXTURE = new Identifier(OldWorld.MOD_ID, "textures/block/beacon_beam.png");
-    private static final float[] COLOR = {(float)255 / 255.0F, (float)255 / 255.0F, (float)51 / 255.0F};
+    private static final Identifier BEAM_TEXTURE = new Identifier(OldWorld.MOD_ID, "textures/block/beam_strike.png");
+    private static final float[] COLOR = {(float)255 / 255.0F, (float)165 / 255.0F, (float)0 / 255.0F};
+    private static final float HALF_SQRT_3 = (float)(Math.sqrt(3.0) / 2.0);
 
     public PlaceHolderRenderer(EntityRendererFactory.Context context) {
         super(context);
@@ -33,26 +34,23 @@ public class PlaceHolderRenderer extends EntityRenderer<PlaceHolder> {
     @Override
     public void render(PlaceHolder placeHolder, float f,  float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
         long l = placeHolder.getWorld().getTime();
-        for (int index = 0; index < placeHolder.distanceToTarget; index++) {
-            renderBeam(placeHolder, matrixStack, vertexConsumerProvider, f, l, 0, index, COLOR);
+        int segments = placeHolder.age >= 25 ? 25 : placeHolder.age;
+        for (int s = 0; s < segments * 2; s++) {
+            renderBeam(placeHolder, matrixStack, vertexConsumerProvider, f, l, s, 1, COLOR);
         }
+        //lightBeams(placeHolder, matrixStack, vertexConsumerProvider, g);
         super.render(placeHolder, f, g, matrixStack, vertexConsumerProvider, i);
     }
 
     private static void renderBeam(PlaceHolder placeHolder, MatrixStack matrices, VertexConsumerProvider vertexConsumers, float tickDelta, long worldTime, int yOffset, int maxY, float[] color) {
-        renderBeam(placeHolder, matrices, vertexConsumers, BEAM_TEXTURE, tickDelta, 1.0F, worldTime, yOffset, maxY, color, 0.2F, 0.25F);
+        renderBeam(placeHolder, matrices, vertexConsumers, BEAM_TEXTURE, tickDelta, 1.0F, worldTime, yOffset, maxY, color, 0.8F, 1.1F);
     }
 
     public static void renderBeam(PlaceHolder placeHolder, MatrixStack matrices, VertexConsumerProvider vertexConsumers, Identifier textureId, float tickDelta, float heightScale, long worldTime, int yOffset, int maxY, float[] color, float innerRadius, float outerRadius) {
         int i = yOffset + maxY;
         matrices.push();
-        matrices.translate(0.0, -1.0, 0.0);
-        // RENDER BEAM WHERE ENTITY IS FACING
-        if (placeHolder.getOwner() != null) {
-            Vec2f rotation = placeHolder.getRotationClient();
-            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-rotation.y));
-            matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(rotation.x + 90));
-        }
+        matrices.translate(0.0, 50, 0.0);
+        matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(180));
         float f = (float)Math.floorMod(worldTime, 40) + tickDelta;
         float g = maxY < 0 ? f : -f;
         float h = MathHelper.fractionalPart(g * 0.2F - (float)MathHelper.floor(g * 0.1F));
@@ -110,6 +108,48 @@ public class PlaceHolderRenderer extends EntityRenderer<PlaceHolder> {
 
     public boolean isInRenderDistance(BeaconBlockEntity beaconBlockEntity, Vec3d vec3d) {
         return Vec3d.ofCenter(beaconBlockEntity.getPos()).multiply(1.0, 0.0, 1.0).isInRange(vec3d.multiply(1.0, 0.0, 1.0), (double)this.getRenderDistance());
+    }
+
+    public static void lightBeams(PlaceHolder placeHolder, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, float g) {
+        float l = ((float)placeHolder.age + g) / 200.0F;
+        float m = Math.min(l > 0.8F ? (l - 0.8F) / 0.2F : 0.0F, 1.0F);
+        Random random = Random.create(432L);
+        VertexConsumer vertexConsumer4 = vertexConsumerProvider.getBuffer(RenderLayer.getLightning());
+        matrixStack.push();
+        for(int n = 0; (float)n < (l + l * l) / 2.0F * 60.0F; ++n) {
+            matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(random.nextFloat() * 360.0F));
+            matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(random.nextFloat() * 360.0F));
+            matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(random.nextFloat() * 360.0F));
+            matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(random.nextFloat() * 360.0F));
+            matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(random.nextFloat() * 360.0F));
+            matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(random.nextFloat() * 360.0F + l * 90.0F));
+            float o = random.nextFloat() * 20.0F + 5.0F + m * 10.0F;
+            float p = random.nextFloat() * 2.0F + 1.0F + m * 2.0F;
+            Matrix4f matrix4f = matrixStack.peek().getPositionMatrix();
+            int q = (int)(255.0F * (1.0F - m));
+            putDeathLightSourceVertex(vertexConsumer4, matrix4f, q);
+            putDeathLightNegativeXTerminalVertex(vertexConsumer4, matrix4f, o, p);
+            putDeathLightPositiveXTerminalVertex(vertexConsumer4, matrix4f, o, p);
+            putDeathLightSourceVertex(vertexConsumer4, matrix4f, q);
+            putDeathLightPositiveXTerminalVertex(vertexConsumer4, matrix4f, o, p);
+            putDeathLightPositiveZTerminalVertex(vertexConsumer4, matrix4f, o, p);
+            putDeathLightSourceVertex(vertexConsumer4, matrix4f, q);
+            putDeathLightPositiveZTerminalVertex(vertexConsumer4, matrix4f, o, p);
+            putDeathLightNegativeXTerminalVertex(vertexConsumer4, matrix4f, o, p);
+            }
+        matrixStack.pop();
+    }
+    private static void putDeathLightSourceVertex(VertexConsumer buffer, Matrix4f matrix, int alpha) {
+        buffer.vertex(matrix, 0.0F, 0.0F, 0.0F).color(255, 255, 255, alpha).next();
+    }
+    private static void putDeathLightNegativeXTerminalVertex(VertexConsumer buffer, Matrix4f matrix, float radius, float width) {
+        buffer.vertex(matrix, -HALF_SQRT_3 * width, radius, -0.5F * width).color(255, 0, 255, 0).next();
+    }
+    private static void putDeathLightPositiveXTerminalVertex(VertexConsumer buffer, Matrix4f matrix, float radius, float width) {
+        buffer.vertex(matrix, HALF_SQRT_3 * width, radius, -0.5F * width).color(255, 0, 255, 0).next();
+    }
+    private static void putDeathLightPositiveZTerminalVertex(VertexConsumer buffer, Matrix4f matrix, float radius, float width) {
+        buffer.vertex(matrix, 0.0F, radius, 1.0F * width).color(255, 0, 255, 0).next();
     }
 
     @Override

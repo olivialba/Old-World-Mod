@@ -26,6 +26,7 @@
         "item.oldworld.grim_scroll.tooltip.meteor" : "A spell that summons a meteor",
         "item.oldworld.grim_scroll.tooltip.bite" : "A spell that summons a mouths from the ground",
         "item.oldworld.grim_scroll.tooltip.petrify" : "A spell that petrify any living entity",
+        "item.oldworld.grim_scroll.tooltip.teleport" : "A spell that teleport the player",
 
     "effect.oldworld.petrify" : "Petrify",
 

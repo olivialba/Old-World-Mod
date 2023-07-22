@@ -4,6 +4,7 @@ import org.jetbrains.annotations.Nullable;
 
 import net.alba.oldworld.util.MagicUtil;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.World;
 
@@ -22,6 +23,9 @@ public abstract class Spell {
      */
     public void cast(World world, PlayerEntity player) {
         if (MagicUtil.removeMana(player, getCost()) || player.isCreative()) {
+            if (getSpellSound() != null) {
+                world.playSound(null, player.getBlockPos(), getSpellSound(), SoundCategory.PLAYERS, 0.75f, 1f);
+            }
             invoke(world, player);
         }
     }

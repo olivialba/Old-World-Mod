@@ -17,7 +17,7 @@ public class BeamParticle extends SpriteBillboardParticle {
     BeamParticle(ClientWorld world, double x, double y, double z, double velX, double velY, double velZ, SpriteProvider spriteProvider) {
         super(world, x, y, z);
         this.spriteProvider = spriteProvider; //Sets the sprite provider from above to the sprite provider in the constructor parameters
-        this.maxAge = 100; //100 ticks = 5 seconds
+        this.maxAge = 60; //100 ticks = 5 seconds
         this.scale = 0.1f;
         this.velocityX = velX; //The velX from the constructor parameters
         this.velocityY = 0; //Allows the particle to slowly fall

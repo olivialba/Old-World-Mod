@@ -31,7 +31,6 @@ public abstract class MagicItems extends Item{
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
         if (!world.isClient) {
-            
             if (rightClick(world, player, stack, hand)) {
                 return TypedActionResult.success(stack);
             }
