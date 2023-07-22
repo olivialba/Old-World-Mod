@@ -23,6 +23,7 @@ import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.item.Item;
 
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class OldClient {
 
     // Key Bindings
