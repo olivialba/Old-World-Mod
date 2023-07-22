@@ -10,6 +10,7 @@ import net.alba.oldworld.client.renderer.EarthGolemRenderer;
 import net.alba.oldworld.client.renderer.PlaceHolderRenderer;
 import net.alba.oldworld.item.scroll.grimoireScroll;
 import net.alba.oldworld.magic.OldSpellMap;
+import net.alba.oldworld.particles.FireParticle;
 import net.alba.oldworld.particles.MagicCircleParticle;
 import net.alba.oldworld.screen.CrystalImbuerBlock.CrystalImbuerScreen;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -53,5 +54,6 @@ public class OldClient {
 
         // Particles
         ParticleFactoryRegistry.getInstance().register(OldParticles.MAGIC_CIRCLE, MagicCircleParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(OldParticles.FIRE, FireParticle.Factory::new);
     }
 }

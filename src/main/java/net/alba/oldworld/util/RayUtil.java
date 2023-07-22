@@ -108,15 +108,4 @@ public final class RayUtil {
     public static double getRotationZ(PlayerEntity user) {
         return (user.getZ() + user.getRotationVec(0.0F).z * 4.0D) - user.getZ();
     }
-
-    public static int beamBlockRaycast(World world, Entity caster, int range) {
-        Vec3d startPosition = caster.getCameraPosVec(1.0F);
-        Vec3d direction = caster.getRotationVec(1.0F);
-        Vec3d endPosition = startPosition.add(direction.multiply(range));
-        BlockHitResult hitResult = world.raycast(new RaycastContext(startPosition, endPosition, RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.NONE, caster));
-        if (hitResult.getType() == HitResult.Type.BLOCK) {
-            return (int)((hitResult.getPos()).distanceTo(caster.getPos()));
-        }
-        return (int)(endPosition.distanceTo(caster.getPos()));
-    }
 }

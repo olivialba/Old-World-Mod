@@ -1,10 +1,12 @@
 package net.alba.oldworld.magic.spell;
 
 import java.util.List;
+
 import org.jetbrains.annotations.Nullable;
+
+import net.alba.oldworld.registry.OldParticles;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
@@ -34,7 +36,7 @@ public class Combustion extends SpellRay {
                 entity.setOnFireFor(6);
             }
         }
-        ((ServerWorld) world).spawnParticles(ParticleTypes.FLAME, blockPos.getX() + 0.5, blockPos.getY() + 0.9, blockPos.getZ() + 0.5, 40, 0, 0.5, 0, 0.2); 
+        ((ServerWorld) world).spawnParticles(OldParticles.FIRE, blockPos.getX() + 0.5, blockPos.getY() + 0.5, blockPos.getZ() + 0.5, 35, 0.6, 0.6, 0.6, 0.2); 
     }
 
     @Nullable
