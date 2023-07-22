@@ -3,7 +3,7 @@ package net.alba.oldworld.registry;
 import net.alba.oldworld.OldWorld;
 import net.alba.oldworld.entity.mobs.BlackSpiderEntity;
 import net.alba.oldworld.entity.mobs.EarthGolemEntity;
-import net.alba.oldworld.entity.projectiles.BallBasicEntity;
+import net.alba.oldworld.entity.projectiles.FireOrbEntity;
 import net.alba.oldworld.entity.projectiles.CrystalProjectileEntity;
 import net.alba.oldworld.entity.projectiles.PlaceHolder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -27,7 +27,7 @@ public class OldEntities {
 
     // Entities PROJECTILE
     public static final EntityType<CrystalProjectileEntity> CRYSTAL_PROJECTILE = Registry.register(Registries.ENTITY_TYPE, new Identifier(OldWorld.MOD_ID, "crystal_projectile"), FabricEntityTypeBuilder.<CrystalProjectileEntity>create(SpawnGroup.MISC, CrystalProjectileEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F)).trackRangeChunks(5).trackedUpdateRate(10).build());
-    public static final EntityType<BallBasicEntity> BASIC_BALL_PROJECTILE = Registry.register(Registries.ENTITY_TYPE, new Identifier(OldWorld.MOD_ID, "ball_basic"), FabricEntityTypeBuilder.<BallBasicEntity>create(SpawnGroup.MISC, BallBasicEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F)).trackRangeChunks(5).trackedUpdateRate(10).build());
+    public static final EntityType<FireOrbEntity> FIRE_ORB_PROJECTILE = Registry.register(Registries.ENTITY_TYPE, new Identifier(OldWorld.MOD_ID, "fire_orb"), FabricEntityTypeBuilder.<FireOrbEntity>create(SpawnGroup.MISC, FireOrbEntity::new).dimensions(EntityDimensions.fixed(0.3F, 0.3F)).trackRangeChunks(5).trackedUpdateRate(10).build());
 
     public static void registerEntities() {
         FabricDefaultAttributeRegistry.register(OldEntities.BLACK_SPIDER, BlackSpiderEntity.setAttributes());

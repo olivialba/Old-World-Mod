@@ -38,6 +38,7 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(OldItems.DEBUG_TOOL, Models.HANDHELD);
         itemModelGenerator.register(OldItems.OLD_INGOT, Models.GENERATED);
+        itemModelGenerator.register(OldItems.FIRE_ORB, Models.GENERATED);
 
         itemModelGenerator.register(OldItems.OLD_SWORD, Models.HANDHELD);
         itemModelGenerator.register(OldItems.OLD_PICKAXE, Models.HANDHELD);

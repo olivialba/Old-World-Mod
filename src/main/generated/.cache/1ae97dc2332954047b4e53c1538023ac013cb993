@@ -1,4 +1,4 @@
-// 1.19.4	2023-07-20T15:32:34.4582956	Old World/Model Definitions
+// 1.19.4	2023-07-22T15:23:08.3882951	Old World/Model Definitions
 f146cb96d42a0e77d3707f203d71726755f92986 assets\oldworld\blockstates\deepslate_old_ore.json
 2aec2ba205a41a395104be8f6ee0f2bf725890df assets\oldworld\blockstates\old_ingot_block.json
 796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\teleport.json
@@ -12,6 +12,7 @@ d45bdad721d7023c91990c271058aa3d8e247edc assets\oldworld\blockstates\old_ore.jso
 515f54aab47c4678acc92a5532e232208d871e44 assets\oldworld\models\block\old_ore.json
 de520c50c7e547e92ed7fc2af2b5f8a643ffcaea assets\oldworld\models\item\old_sword.json
 bd24b2bdc77a202e922ce1385a437ae39a49133e assets\oldworld\models\item\old_pickaxe.json
+51927b4e548b4c25cfee40ad406b22ab684715c6 assets\oldworld\models\item\fire_orb.json
 796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\bite.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets\oldworld\models\item\earth_golem_spawn_egg.json
 796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\petrify.json

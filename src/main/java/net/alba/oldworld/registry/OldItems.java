@@ -31,9 +31,10 @@ public class OldItems {
     
     // ITEMS
     public static final Item OLD_INGOT = registerItem("old_ingot", new Item(settings()));
+    public static final Item FIRE_ORB = registerItem("fire_orb", new Item(settingMaxCount()));
     public static final Item DEBUG_TOOL = registerItem("debug_tool", new DebugTool(settings().rarity(Rarity.EPIC)));
 
-    // WEAPONS / EQUIPMENT
+    // WEAPONS
     public static final Item OLD_HAMMER = registerItem("old_hammer", new OldHammer(ToolMaterialGroups.OLD_METAL, 6, -3.3F, settings().maxCount(1)));
     public static final ToolItem OLD_SWORD = registerToolItem("old_sword", new SwordItem(ToolMaterialGroups.OLD_METAL, 4, -2F, settings()));
     public static final ToolItem OLD_PICKAXE = registerToolItem("old_pickaxe", new PickaxeItem(ToolMaterialGroups.OLD_METAL, 3, -2.8F, settings()));
