@@ -1,5 +1,6 @@
 package net.alba.oldworld.magic.spell;
 
+import java.util.Random;
 import org.jetbrains.annotations.Nullable;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.EvokerFangsEntity;
@@ -22,18 +23,17 @@ public class Bite extends SpellRay {
     @Override
     protected void onBlockHit(World world, @Nullable PlayerEntity caster, Vec3d startPosition, BlockPos blockPos) {
         Vec3d center = blockPos.toCenterPos();
-        double offsetX = 1.3;
-        float[] rotations = {45, 0, -45};
+        float[] rotations = {45, 0, -45, 30, -20, 50};
+        Random random = new Random();
         EvokerFangsEntity fang;
         for (float rotation : rotations) {
-            fang = new EvokerFangsEntity(world, center.x + offsetX, center.y + 1, center.z, rotation, 0, caster);
-            offsetX -= 1.3;
+            double theta = random.nextDouble() * 2 * Math.PI;
+            double randomRadius = random.nextDouble() * 3.5;
+            double x = center.x + randomRadius * Math.cos(theta);
+            double z = center.z + randomRadius * Math.sin(theta);
+            fang = new EvokerFangsEntity(world, x, center.y + 0.7, z, rotation, 0, caster);
             world.spawnEntity(fang);
         }
-    }
-
-    @Override
-    public void spawnParticleRay() {
     }
 
     @Nullable
