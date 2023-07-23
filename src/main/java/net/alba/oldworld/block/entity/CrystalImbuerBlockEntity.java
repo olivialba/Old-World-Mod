@@ -21,7 +21,6 @@ import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -128,10 +127,10 @@ public class CrystalImbuerBlockEntity extends BlockEntity implements NamedScreen
         }
 
         boolean hasGrimoireInFirstSlot = entity.getStack(0).getItem() == OldItems.GRIMOIRE_BASIC;
-        return hasGrimoireInFirstSlot && hasOnlyCrystalsInSlots(inventory, OldItems.TAG_SPELL_CRYSTALS);
+        return hasGrimoireInFirstSlot && hasOnlyScrollsInSlots(inventory, OldItems.TAG_SPELL_CRYSTALS);
     }
 
-    private static boolean hasOnlyCrystalsInSlots(SimpleInventory inventory, TagKey<Item> tag) {
+    private static boolean hasOnlyScrollsInSlots(SimpleInventory inventory, TagKey<Item> tag) {
         ItemStack currentSlotStack;
         boolean atLeastOne = false;
         for (int i = 1; i <= 5; i++) {
@@ -182,11 +181,4 @@ public class CrystalImbuerBlockEntity extends BlockEntity implements NamedScreen
         }
         return grimoireNbt;
     }
-
-
-    // TEST -  REMOVE LATER
-
-    public DyeColor getColour() { return DyeColor.byId(14); }
-    public float getReach() { return 5; }
-    public float getPrevReach() { return 4; }
 }

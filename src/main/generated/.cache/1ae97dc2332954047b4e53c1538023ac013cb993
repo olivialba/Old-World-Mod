@@ -1,8 +1,9 @@
-// 1.19.4	2023-07-22T20:16:40.9436163	Old World/Model Definitions
+// 1.19.4	2023-07-23T16:30:50.813281	Old World/Model Definitions
 f146cb96d42a0e77d3707f203d71726755f92986 assets\oldworld\blockstates\deepslate_old_ore.json
+796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\fireorb_c.json
 2aec2ba205a41a395104be8f6ee0f2bf725890df assets\oldworld\blockstates\old_ingot_block.json
-796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\fireorb.json
-796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\teleport.json
+796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\fangs_c.json
+796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\meteor_c.json
 ce2388473d7ac1ff411e99391e28d33c8a721bb1 assets\oldworld\models\item\debug_tool.json
 13f35b37d2efd57c1da944c25d83ce5daf8a8a09 assets\oldworld\blockstates\crystal_imbuer.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets\oldworld\models\item\black_spider_spawn_egg.json
@@ -12,17 +13,16 @@ d45bdad721d7023c91990c271058aa3d8e247edc assets\oldworld\blockstates\old_ore.jso
 515f54aab47c4678acc92a5532e232208d871e44 assets\oldworld\models\block\old_ore.json
 de520c50c7e547e92ed7fc2af2b5f8a643ffcaea assets\oldworld\models\item\old_sword.json
 bd24b2bdc77a202e922ce1385a437ae39a49133e assets\oldworld\models\item\old_pickaxe.json
+796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\combustion_c.json
 51927b4e548b4c25cfee40ad406b22ab684715c6 assets\oldworld\models\item\fire_orb.json
-796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\fangs.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets\oldworld\models\item\earth_golem_spawn_egg.json
-796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\petrify.json
 db2487ae268e467cc3e46fd83f957e9af7e23ea9 assets\oldworld\models\item\crystal_imbuer.json
 a6cc8471ac910739687e1375724298c2e59383d7 assets\oldworld\models\item\old_ore.json
 cc09217ab4e7c478480b6b18227475db1a3d2e2b assets\oldworld\models\item\old_ingot_block.json
-796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\combustion.json
 56e56c820e152560595b2635f71cd12ff9ca5176 assets\oldworld\models\block\deepslate_old_ore.json
-796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\meteor.json
 ea0d6acc668aca790c06d23b0c22bd8446efd77e assets\oldworld\models\block\old_ingot_block.json
 4ee839309a4c5795bf56dc245d2de224d16462eb assets\oldworld\models\item\old_hoe.json
+796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\teleport_e.json
 0e6aeafb0e92afe0077af38c5bc8d639e616ea55 assets\oldworld\models\item\old_ingot.json
 2d328105dc017b4e5a0778d1a3c5b08597bb7362 assets\oldworld\models\item\old_shovel.json
+796b89eaad5fabb3a6865414f83db773b3cae18b assets\oldworld\models\item\petrify_c.json

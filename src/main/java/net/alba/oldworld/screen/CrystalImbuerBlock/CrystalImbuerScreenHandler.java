@@ -31,7 +31,7 @@ public class CrystalImbuerScreenHandler extends ScreenHandler{
         this.addSlot(new Slot(inventory, 2, 152, 13));
         this.addSlot(new Slot(inventory, 3, 122, 35));
         this.addSlot(new Slot(inventory, 4, 92, 59));
-        this.addSlot(new Slot(inventory, 5, 152, 72));
+        this.addSlot(new Slot(inventory, 5, 152, 59));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

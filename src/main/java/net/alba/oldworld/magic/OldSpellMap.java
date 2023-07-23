@@ -30,16 +30,16 @@ public class OldSpellMap {
     public static final List<Item> SCROLL_ITEM_LIST = new ArrayList<>();
 
     // SPELLS T-1
-    public static Spell FIREBALL = register("fireorb", new FireBall(), Formatting.GREEN);
-    public static Spell COMBUSTION = register("combustion", new Combustion(), Formatting.GREEN);
-    public static Spell METEOR = register("meteor", new Meteor(), Formatting.GREEN);
-    public static Spell BITE = register("fangs", new Bite(), Formatting.GREEN);
-    public static Spell PETRIFY = register("petrify", new Petrify(), Formatting.GREEN);
+    public static Spell FIREBALL = register("fireorb_c", new FireBall(), Formatting.GREEN);
+    public static Spell COMBUSTION = register("combustion_c", new Combustion(), Formatting.GREEN);
+    public static Spell METEOR = register("meteor_c", new Meteor(), Formatting.GREEN);
+    public static Spell BITE = register("fangs_c", new Bite(), Formatting.GREEN);
+    public static Spell PETRIFY = register("petrify_c", new Petrify(), Formatting.GREEN);
 
     // SPELLS T-2
 
     // SPELLS T-3
-    public static Spell TELEPORT = register("teleport", new Teleport(), Formatting.LIGHT_PURPLE);
+    public static Spell TELEPORT = register("teleport_e", new Teleport(), Formatting.LIGHT_PURPLE);
 
 
     private static Spell register(String name, Spell spell, Formatting colorName) {

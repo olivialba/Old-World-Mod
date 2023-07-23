@@ -19,14 +19,14 @@
     "item.oldworld.grimoire_basic" : "Old Grimoire",
     "item.oldworld.grimoire_basic.tooltip" : "An old worn-out magic book",
     
-
+    "magic.oldworld.spell_scroll." : "",
     "magic.oldworld.spell_scroll.tooltip" : "Contains some kind of unknown lost magic",
-    "magic.oldworld.spell_scroll.fireorb" : "Fire Orb Scroll",
-    "magic.oldworld.spell_scroll.combustion" : "Combustion Scroll",
-    "magic.oldworld.spell_scroll.meteor" : "Meteor Scroll",
-    "magic.oldworld.spell_scroll.fangs" : "Viper's Fangs Scroll",
-    "magic.oldworld.spell_scroll.petrify" : "Petrify Scroll",
-    "magic.oldworld.spell_scroll.teleport" : "Teleport Scroll",
+    "magic.oldworld.spell_scroll.fireorb_c" : "Fire Orb",
+    "magic.oldworld.spell_scroll.combustion_c" : "Combustion",
+    "magic.oldworld.spell_scroll.meteor_c" : "Meteor",
+    "magic.oldworld.spell_scroll.fangs_c" : "Viper's Fangs",
+    "magic.oldworld.spell_scroll.petrify_c" : "Petrify",
+    "magic.oldworld.spell_scroll.teleport_e" : "Teleport",
 
     "effect.oldworld.petrify" : "Petrify Effect",
 
