@@ -43,7 +43,7 @@ public class GrimoireBasic extends MagicItems {
         }
         String spellIdentifier = grimoireModNbt.getString("SP" + MagicUtil.get(grimoireModNbt));
         if (spellIdentifier.isEmpty()) {
-            player.sendMessage(Text.literal("No spell found in index '" + MagicUtil.get(grimoireModNbt) + "'")
+            player.sendMessage(Text.literal("No spell found in index " + MagicUtil.get(grimoireModNbt))
                 .fillStyle(Style.EMPTY.withColor(Formatting.AQUA)), true);
             return null;
         }
@@ -66,9 +66,7 @@ public class GrimoireBasic extends MagicItems {
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(Text.empty());
-        tooltip.add(Text.translatable("item.oldworld.grimoire_basic.tooltip_1").formatted(Formatting.GRAY));
-        tooltip.add(Text.translatable("item.oldworld.grimoire_basic.tooltip_2").formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable("item.oldworld.grimoire_basic.tooltip").formatted(Formatting.GRAY));
     }
 
     @Override

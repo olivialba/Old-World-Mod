@@ -12,27 +12,25 @@ import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
 public class grimoireScroll extends Item {
-    private static final String TOOLTIP = "item.oldworld.grim_scroll.tooltip.";
-    private static final String NAME = "item.oldworld.grim_scroll.template";
-    private final int colorTexture;
-    private final String spellKey;
+    private static final String NAME = "magic.oldworld.spell_scroll.";
+    private static final String TOOLTIP = "magic.oldworld.spell_scroll.tooltip";
+    private final String spellName;
     private final Formatting nameColor;
 
-    public grimoireScroll(Settings settings, String key, int colorTexture, Formatting color) {
+    public grimoireScroll(Settings settings, String name, Formatting nameColors) {
         super(settings);
-        this.colorTexture = colorTexture;
-        this.spellKey = key;
-        this.nameColor = color;
+        this.spellName = name;
+        this.nameColor = nameColors;
     }
 
     public String getSpellKey() {
-        return this.spellKey;
+        return this.spellName;
     }
 
-    public int getColor(int tintIndex) {
-        return tintIndex == 1 ? colorTexture: -1;
-    }
-
+    // public int getColor(int tintIndex) {
+    //     return tintIndex == 1 ? colorTexture: -1;
+    // }
+ 
     @Override
     public boolean hasGlint(ItemStack stack) {
         return true;
@@ -40,12 +38,12 @@ public class grimoireScroll extends Item {
 
     @Override
     public Text getName(ItemStack stack) {
-        return Text.translatable(NAME).formatted(nameColor);
+        return Text.translatable(NAME + spellName).formatted(nameColor);
     }
 
     @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable(TOOLTIP + spellKey).formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable(TOOLTIP).formatted(Formatting.GRAY, Formatting.ITALIC));
     }
 }

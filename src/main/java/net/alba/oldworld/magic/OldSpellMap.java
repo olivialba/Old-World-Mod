@@ -30,27 +30,26 @@ public class OldSpellMap {
     public static final List<Item> SCROLL_ITEM_LIST = new ArrayList<>();
 
     // SPELLS T-1
-    public static Spell FIREBALL = register("fireball", new FireBall(), 0xF8A770, Formatting.GREEN);
-    public static Spell COMBUSTION = register("combustion", new Combustion(), 0xFFB68C, Formatting.GREEN);
-    public static Spell METEOR = register("meteor", new Meteor(), 0xFFB68C, Formatting.GREEN);
-    public static Spell BITE = register("bite", new Bite(), 0xFFB68C, Formatting.GREEN);
-    public static Spell PETRIFY = register("petrify", new Petrify(), 0xFFB68C, Formatting.GREEN);
+    public static Spell FIREBALL = register("fireorb", new FireBall(), Formatting.GREEN);
+    public static Spell COMBUSTION = register("combustion", new Combustion(), Formatting.GREEN);
+    public static Spell METEOR = register("meteor", new Meteor(), Formatting.GREEN);
+    public static Spell BITE = register("fangs", new Bite(), Formatting.GREEN);
+    public static Spell PETRIFY = register("petrify", new Petrify(), Formatting.GREEN);
 
     // SPELLS T-2
 
     // SPELLS T-3
-    public static Spell TELEPORT = register("teleport", new Teleport(), 0xFFB68C, Formatting.LIGHT_PURPLE);
+    public static Spell TELEPORT = register("teleport", new Teleport(), Formatting.LIGHT_PURPLE);
 
 
-    private static Spell register(String name, Spell spell, int colorTexture, Formatting colorName) {
-        addItemToItemGroup(OldItemGroup.OLD_WORLD, makeGrimoireScrollItem(name, colorTexture, colorName));
+    private static Spell register(String name, Spell spell, Formatting colorName) {
+        addItemToItemGroup(OldItemGroup.OLD_WORLD, makeGrimoireScrollItem(name, colorName));
         return Registry.register(REGISTRY_SPELL, new Identifier(name), spell);
     }
 
-    private static Item makeGrimoireScrollItem(String name, int colorTexture, Formatting colorName) {
-        Item item = Registry.register(Registries.ITEM, 
-            new Identifier(OldWorld.MOD_ID, name), 
-            new grimoireScroll(settingMaxCount(), name, colorTexture, colorName));
+    private static Item makeGrimoireScrollItem(String name, Formatting colorName) {
+        Item item = Registry.register(Registries.ITEM, new Identifier(OldWorld.MOD_ID, name), 
+            new grimoireScroll(settingMaxCount(), name, colorName));
         SCROLL_ITEM_LIST.add(item);
         return item;
     }
@@ -60,7 +59,7 @@ public class OldSpellMap {
     }
 
     public static FabricItemSettings settingMaxCount() {
-        return new    FabricItemSettings().maxCount(1);
+        return new FabricItemSettings().maxCount(1);
     }
 
     public static void register() {}

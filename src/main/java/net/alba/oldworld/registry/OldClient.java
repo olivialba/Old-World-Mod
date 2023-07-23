@@ -7,21 +7,17 @@ import net.alba.oldworld.client.renderer.BlackSpiderRenderer;
 import net.alba.oldworld.client.renderer.CrystalRenderer;
 import net.alba.oldworld.client.renderer.EarthGolemRenderer;
 import net.alba.oldworld.client.renderer.PlaceHolderRenderer;
-import net.alba.oldworld.item.scroll.grimoireScroll;
-import net.alba.oldworld.magic.OldSpellMap;
 import net.alba.oldworld.particles.FireParticle;
 import net.alba.oldworld.particles.MagicCircleParticle;
 import net.alba.oldworld.screen.CrystalImbuerBlock.CrystalImbuerScreen;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.item.Item;
 
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class OldClient {
@@ -44,9 +40,9 @@ public class OldClient {
         HudRenderCallback.EVENT.register(new ManaHudOverlay());
 
         // Scroll Item Colors
-        for (Item scrollItem : OldSpellMap.SCROLL_ITEM_LIST) {
-            ColorProviderRegistry.ITEM.register((stack, tintIndex) -> ((grimoireScroll) stack.getItem()).getColor(tintIndex), scrollItem);
-        }
+        // for (Item scrollItem : OldSpellMap.SCROLL_ITEM_LIST) {
+        //     ColorProviderRegistry.ITEM.register((stack, tintIndex) -> ((grimoireScroll) stack.getItem()).getColor(tintIndex), scrollItem);
+        // }
 
         // Keys
         KeyBindingHelper.registerKeyBinding(NextSpell);

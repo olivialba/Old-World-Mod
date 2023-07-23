@@ -15,24 +15,24 @@
     "item.oldworld.old_shovel": "Old Shovel",
     "item.oldworld.old_hoe": "Old Hoe",
 
-    "item.oldworld.grimoire_basic" : "Basic Grimoire",
-        "item.oldworld.grimoire_basic.tooltip_1" : "A basic worn-out Grimoire",
-        "item.oldworld.grimoire_basic.tooltip_2" : "Can be imbued with 3 spells",
-        "item.oldworld.grimoire_basic.tooltip_3" : "Spells imbued: %d",
 
-    "item.oldworld.grim_scroll.template" : "Grimoire's Scroll",
-        "item.oldworld.grim_scroll.tooltip.fireball" : "A spell that launch a fireball",
-        "item.oldworld.grim_scroll.tooltip.combustion" : "A spell that sets the enemy on fire",
-        "item.oldworld.grim_scroll.tooltip.meteor" : "A spell that summons a meteor",
-        "item.oldworld.grim_scroll.tooltip.bite" : "A spell that summons a mouths from the ground",
-        "item.oldworld.grim_scroll.tooltip.petrify" : "A spell that petrify any living entity",
-        "item.oldworld.grim_scroll.tooltip.teleport" : "A spell that teleport the player",
+    "item.oldworld.grimoire_basic" : "Old Grimoire",
+    "item.oldworld.grimoire_basic.tooltip" : "An old worn-out magic book",
+    
 
-    "effect.oldworld.petrify" : "Petrify",
+    "magic.oldworld.spell_scroll.tooltip" : "Contains some kind of unknown lost magic",
+    "magic.oldworld.spell_scroll.fireorb" : "Fire Orb Scroll",
+    "magic.oldworld.spell_scroll.combustion" : "Combustion Scroll",
+    "magic.oldworld.spell_scroll.meteor" : "Meteor Scroll",
+    "magic.oldworld.spell_scroll.fangs" : "Viper's Fangs Scroll",
+    "magic.oldworld.spell_scroll.petrify" : "Petrify Scroll",
+    "magic.oldworld.spell_scroll.teleport" : "Teleport Scroll",
 
-    "player.oldworld.max_mana" : "Player's Mana",
+    "effect.oldworld.petrify" : "Petrify Effect",
+
+    "player.oldworld.max_mana" : "Player's Max Mana",
 
     "key.category.oldworld" : "Old World",
-        "key.oldworld.next_spell" : "Next Spell",
-        "key.oldworld.previous_spell" : "Previous Spell"
+    "key.oldworld.next_spell" : "Next Spell",
+    "key.oldworld.previous_spell" : "Previous Spell"
 }
