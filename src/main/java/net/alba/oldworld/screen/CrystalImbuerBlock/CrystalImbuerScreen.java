@@ -18,10 +18,11 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class CrystalImbuerScreen extends HandledScreen<CrystalImbuerScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(OldWorld.MOD_ID, "textures/gui/crystal_imbuer_gui.png");
+    private static final Identifier TEXTURE = new Identifier(OldWorld.MOD_ID, "textures/gui/scroll_imbuer_gui.png");
 
     public CrystalImbuerScreen(CrystalImbuerScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
+        this.backgroundHeight = 171;
     }
 
     @Override
@@ -35,8 +36,8 @@ public class CrystalImbuerScreen extends HandledScreen<CrystalImbuerScreenHandle
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - backgroundWidth) / 2;
-        int y = (height - backgroundHeight) / 2;
-        drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        int y = (height - 171) / 2;
+        drawTexture(matrices, x, y, 0, 0, backgroundWidth, 171);
         renderGrimoireInfo(matrices, x, y);
         renderProgressArrow(matrices, x, y);
     }
@@ -47,7 +48,7 @@ public class CrystalImbuerScreen extends HandledScreen<CrystalImbuerScreenHandle
             if (grimoire_slot_gui.getStack().getItem() == OldItems.GRIMOIRE_BASIC) {
                 NbtCompound grimoireModNbt = grimoire_slot_gui.getStack().getSubNbt(OldWorld.MOD_ID);
                 if (grimoireModNbt != null) {
-                    drawTexture(matrices, x - 90, y + 11 , 0, 168, 90, 69);
+                    drawTexture(matrices, x - 90, y + 11 , 0, 171, 90, 74);
                     x -= 83;
                     y += 5;
                     for (int i = 1; i <= 5; i++) {
@@ -68,7 +69,8 @@ public class CrystalImbuerScreen extends HandledScreen<CrystalImbuerScreenHandle
 
     private void renderProgressArrow(MatrixStack matrices, int x, int y) {
         if (handler.isCrafting()) {
-            drawTexture(matrices, x + 50, y + 31, 176, 0, 26, handler.getScaledProgress());
+            int progress = handler.getScaledProgress();
+            drawTexture(matrices, x + (74 - progress), y + 21, 228 - progress, 0, progress, 43);
         }
     }
 

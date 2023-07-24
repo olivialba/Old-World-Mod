@@ -63,7 +63,7 @@ public class CrystalImbuerBlockEntity extends BlockEntity implements NamedScreen
 
     @Override
     public Text getDisplayName() {
-        return Text.literal("Crystal Imbuer");
+        return Text.literal("Scroll Imbuer");
     }
 
     private void resetProgress() {
