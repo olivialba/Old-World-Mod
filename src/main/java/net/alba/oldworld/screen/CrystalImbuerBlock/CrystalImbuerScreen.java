@@ -43,25 +43,21 @@ public class CrystalImbuerScreen extends HandledScreen<CrystalImbuerScreenHandle
     }
 
     private void renderGrimoireInfo(MatrixStack matrices, int x, int y) {
-        if (this.focusedSlot == this.handler.getSlot(0) && this.focusedSlot != null && this.focusedSlot.hasStack()) {
-            Slot grimoire_slot_gui = this.handler.getSlot(0);
-            if (grimoire_slot_gui.getStack().getItem() == OldItems.GRIMOIRE_BASIC) {
-                NbtCompound grimoireModNbt = grimoire_slot_gui.getStack().getSubNbt(OldWorld.MOD_ID);
-                if (grimoireModNbt != null) {
-                    drawTexture(matrices, x - 90, y + 11 , 0, 171, 90, 74);
-                    x -= 83;
-                    y += 5;
-                    for (int i = 1; i <= 5; i++) {
-                        String spellName = grimoireModNbt.getString("SP" + i);
-                        Text nameSpell = spellName.isEmpty() ? 
-                            Text.literal("") :
-                            Text.translatable("magic.oldworld.spell_scroll." + spellName).formatted(spellColor(spellName));
-                        this.textRenderer.draw(matrices, i + ".", x, y + 1 + (14 * i), 0);
-                        drawTextWithShadow(matrices, textRenderer, nameSpell, x + 6, y + (14 * i), i);
+        Slot zero = this.handler.getSlot(0);
+        if (this.focusedSlot == zero && zero.hasStack() && zero.getStack().getItem() == OldItems.GRIMOIRE_BASIC) {
+            NbtCompound grimoireModNbt = zero.getStack().getSubNbt(OldWorld.MOD_ID);
+            if (grimoireModNbt != null) {
+                drawTexture(matrices, x - 90, y + 11 , 0, 171, 90, 79);
+                x -= 83;
+                y += 5;
+                for (int i = 1; i <= 5; i++) {
+                    String spellName = grimoireModNbt.getString("SP" + i);
+                    Text nameSpell = spellName.isEmpty() ? 
+                        Text.literal("") :
+                        Text.translatable("magic.oldworld.spell_scroll." + spellName).formatted(spellColor(spellName));
+                    this.textRenderer.draw(matrices, i + ".", x, y + 1 + (14 * i), 0);
+                    drawTextWithShadow(matrices, textRenderer, nameSpell, x + 9, y + (14 * i), i);
 
-                        // Text.literal(i + ". ") :
-                        // Text.literal(i + ". ").append(Text.translatable("magic.oldworld.spell_scroll." + spellName).formatted(spellColor(spellName)));
-                    }
                 }
             }
         }
