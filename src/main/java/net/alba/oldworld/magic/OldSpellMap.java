@@ -9,6 +9,7 @@ import net.alba.oldworld.magic.spell.Combustion;
 import net.alba.oldworld.magic.spell.FireBall;
 import net.alba.oldworld.magic.spell.Meteor;
 import net.alba.oldworld.magic.spell.Petrify;
+import net.alba.oldworld.magic.spell.Singularity;
 import net.alba.oldworld.magic.spell.Spell;
 import net.alba.oldworld.magic.spell.Teleport;
 import net.alba.oldworld.registry.OldItemGroup;
@@ -29,17 +30,20 @@ public class OldSpellMap {
     public static final Registry<Spell> REGISTRY_SPELL = FabricRegistryBuilder.createSimple(REGISTRY_KEY).buildAndRegister(); // REGISTRY FOR SPELL INVOKING
     public static final List<Item> SCROLL_ITEM_LIST = new ArrayList<>();
 
-    // SPELLS T-1
+    // SPELLS COMMON
     public static Spell FIREBALL = register("fireorb_c", new FireBall(), Formatting.GREEN);
     public static Spell COMBUSTION = register("combustion_c", new Combustion(), Formatting.GREEN);
     public static Spell METEOR = register("meteor_c", new Meteor(), Formatting.GREEN);
     public static Spell BITE = register("fangs_c", new Bite(), Formatting.GREEN);
     public static Spell PETRIFY = register("petrify_c", new Petrify(), Formatting.GREEN);
 
-    // SPELLS T-2
+    // SPELLS RARE
 
-    // SPELLS T-3
+    // SPELLS EPIC
     public static Spell TELEPORT = register("teleport_e", new Teleport(), Formatting.LIGHT_PURPLE);
+
+    // SPELLS LEGENDARY
+    public static Spell SINGULARITY = register("singularity_l", new Singularity(), Formatting.GOLD);
 
 
     private static Spell register(String name, Spell spell, Formatting colorName) {

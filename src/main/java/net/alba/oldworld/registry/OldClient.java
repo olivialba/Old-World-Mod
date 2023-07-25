@@ -6,7 +6,7 @@ import net.alba.oldworld.client.hud.ManaHudOverlay;
 import net.alba.oldworld.client.renderer.BlackSpiderRenderer;
 import net.alba.oldworld.client.renderer.CrystalRenderer;
 import net.alba.oldworld.client.renderer.EarthGolemRenderer;
-import net.alba.oldworld.client.renderer.PlaceHolderRenderer;
+import net.alba.oldworld.client.renderer.InvisibleRenderer;
 import net.alba.oldworld.particles.FireParticle;
 import net.alba.oldworld.particles.MagicCircleParticle;
 import net.alba.oldworld.screen.CrystalImbuerBlock.ScrollImbuerScreen;
@@ -33,7 +33,7 @@ public class OldClient {
 
         EntityRendererRegistry.register(OldEntities.CRYSTAL_PROJECTILE, CrystalRenderer::new);
         EntityRendererRegistry.register(OldEntities.FIRE_ORB_PROJECTILE, (context) -> new FlyingItemEntityRenderer(context, 2.7F, true));
-        EntityRendererRegistry.register(OldEntities.PLACE, PlaceHolderRenderer::new);
+        EntityRendererRegistry.register(OldEntities.PLACE, InvisibleRenderer::new);
 
         // Screens - HUD
         HandledScreens.register(OldScreenHandlers.CRYSTAL_IMBUER_SCREEN_HANDLER, ScrollImbuerScreen::new);

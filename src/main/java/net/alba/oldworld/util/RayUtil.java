@@ -17,7 +17,6 @@ import net.minecraft.world.World;
 
 public final class RayUtil {
 
-
     /**
      * Returns {@code BlockPos} or {@code Null} (if it doesn't detect any block)
      */
