@@ -11,15 +11,15 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
-public class CrystalImbuerScreenHandler extends ScreenHandler{
+public class ScrollImbuerScreenHandler extends ScreenHandler{
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
 
-    public CrystalImbuerScreenHandler (int syncId, PlayerInventory inventory) {
+    public ScrollImbuerScreenHandler (int syncId, PlayerInventory inventory) {
         this(syncId, inventory, new SimpleInventory(6), new ArrayPropertyDelegate(2));
     }
 
-    public CrystalImbuerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
+    public ScrollImbuerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
         super(OldScreenHandlers.CRYSTAL_IMBUER_SCREEN_HANDLER, syncId);
         checkSize(inventory, 6);
         this.inventory = inventory;
@@ -31,6 +31,8 @@ public class CrystalImbuerScreenHandler extends ScreenHandler{
         this.addSlot(new Slot(inventory, 2, 152, 13));
         this.addSlot(new Slot(inventory, 3, 122, 35));
         this.addSlot(new Slot(inventory, 4, 92, 59));
+        this.addSlot(new Slot(inventory, 5, 152, 59));
+
         this.addSlot(new Slot(inventory, 5, 152, 59));
 
         addPlayerInventory(playerInventory);

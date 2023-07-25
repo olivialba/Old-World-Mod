@@ -17,10 +17,10 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
-public class CrystalImbuerScreen extends HandledScreen<CrystalImbuerScreenHandler> {
+public class ScrollImbuerScreen extends HandledScreen<ScrollImbuerScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(OldWorld.MOD_ID, "textures/gui/scroll_imbuer_gui.png");
 
-    public CrystalImbuerScreen(CrystalImbuerScreenHandler handler, PlayerInventory inventory, Text title) {
+    public ScrollImbuerScreen(ScrollImbuerScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
         this.backgroundHeight = 171;
     }
@@ -51,12 +51,12 @@ public class CrystalImbuerScreen extends HandledScreen<CrystalImbuerScreenHandle
                 x -= 83;
                 y += 5;
                 for (int i = 1; i <= 5; i++) {
-                    String spellName = grimoireModNbt.getString("SP" + i);
-                    Text nameSpell = spellName.isEmpty() ? 
-                        Text.literal("") :
-                        Text.translatable("magic.oldworld.spell_scroll." + spellName).formatted(spellColor(spellName));
+                    String spellKey = grimoireModNbt.getString("SP" + i);
+                    Text nameSpell = spellKey.isEmpty() ? 
+                        Text.empty() :
+                        Text.translatable("magic.oldworld.spell_scroll." + spellKey).formatted(spellColor(spellKey));
                     this.textRenderer.draw(matrices, i + ".", x, y + 1 + (14 * i), 0);
-                    drawTextWithShadow(matrices, textRenderer, nameSpell, x + 9, y + (14 * i), i);
+                    drawTextWithShadow(matrices, textRenderer, nameSpell, x + 9, y + (14 * i), 0);
 
                 }
             }

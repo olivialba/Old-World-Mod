@@ -9,7 +9,7 @@ import net.alba.oldworld.client.renderer.EarthGolemRenderer;
 import net.alba.oldworld.client.renderer.PlaceHolderRenderer;
 import net.alba.oldworld.particles.FireParticle;
 import net.alba.oldworld.particles.MagicCircleParticle;
-import net.alba.oldworld.screen.CrystalImbuerBlock.CrystalImbuerScreen;
+import net.alba.oldworld.screen.CrystalImbuerBlock.ScrollImbuerScreen;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -36,7 +36,7 @@ public class OldClient {
         EntityRendererRegistry.register(OldEntities.PLACE, PlaceHolderRenderer::new);
 
         // Screens - HUD
-        HandledScreens.register(OldScreenHandlers.CRYSTAL_IMBUER_SCREEN_HANDLER, CrystalImbuerScreen::new);
+        HandledScreens.register(OldScreenHandlers.CRYSTAL_IMBUER_SCREEN_HANDLER, ScrollImbuerScreen::new);
         HudRenderCallback.EVENT.register(new ManaHudOverlay());
 
         // Scroll Item Colors

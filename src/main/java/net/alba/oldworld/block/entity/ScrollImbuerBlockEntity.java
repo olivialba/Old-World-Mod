@@ -6,7 +6,7 @@ import net.alba.oldworld.OldWorld;
 import net.alba.oldworld.item.scroll.grimoireScroll;
 import net.alba.oldworld.registry.OldBlockEntities;
 import net.alba.oldworld.registry.OldItems;
-import net.alba.oldworld.screen.CrystalImbuerBlock.CrystalImbuerScreenHandler;
+import net.alba.oldworld.screen.CrystalImbuerBlock.ScrollImbuerScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -25,28 +25,28 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class CrystalImbuerBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory{
+public class ScrollImbuerBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory{
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(6, ItemStack.EMPTY);
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 72;
 
-    public CrystalImbuerBlockEntity(BlockPos pos, BlockState state) {
+    public ScrollImbuerBlockEntity(BlockPos pos, BlockState state) {
         super(OldBlockEntities.CRYSTAL_IMBUER, pos, state);
         this.propertyDelegate = new PropertyDelegate() {
             public int get(int index) {
                 switch (index) {
-                    case 0: return CrystalImbuerBlockEntity.this.progress;
-                    case 1: return CrystalImbuerBlockEntity.this.maxProgress;
+                    case 0: return ScrollImbuerBlockEntity.this.progress;
+                    case 1: return ScrollImbuerBlockEntity.this.maxProgress;
                     default: return 0;
                 }
             }
 
             public void set(int index, int value) {
                 switch(index) {
-                    case 0: CrystalImbuerBlockEntity.this.progress = value; break;
-                    case 1: CrystalImbuerBlockEntity.this.maxProgress = value; break;
+                    case 0: ScrollImbuerBlockEntity.this.progress = value; break;
+                    case 1: ScrollImbuerBlockEntity.this.maxProgress = value; break;
                 }
             }
 
@@ -87,10 +87,10 @@ public class CrystalImbuerBlockEntity extends BlockEntity implements NamedScreen
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
-        return new CrystalImbuerScreenHandler(syncId, inv, this, this.propertyDelegate);
+        return new ScrollImbuerScreenHandler(syncId, inv, this, this.propertyDelegate);
     }
 
-    public static void tick(World world, BlockPos blockPos, BlockState state, CrystalImbuerBlockEntity entity) {
+    public static void tick(World world, BlockPos blockPos, BlockState state, ScrollImbuerBlockEntity entity) {
         if (world.isClient) {
             return;
         }
@@ -108,7 +108,7 @@ public class CrystalImbuerBlockEntity extends BlockEntity implements NamedScreen
         }
     }
 
-    private static void craftItem(CrystalImbuerBlockEntity entity) {
+    private static void craftItem(ScrollImbuerBlockEntity entity) {
         SimpleInventory inventory = new SimpleInventory(entity.size());
         for (int i = 0; i < entity.size(); i++) {
             inventory.setStack(i, entity.getStack(i));
@@ -120,7 +120,7 @@ public class CrystalImbuerBlockEntity extends BlockEntity implements NamedScreen
         }
     }
 
-    private static boolean hasRecipe(CrystalImbuerBlockEntity entity) {
+    private static boolean hasRecipe(ScrollImbuerBlockEntity entity) {
         SimpleInventory inventory = new SimpleInventory(entity.size());
         for (int i = 0; i < entity.size(); i++) {
             inventory.setStack(i, entity.getStack(i));
@@ -147,7 +147,7 @@ public class CrystalImbuerBlockEntity extends BlockEntity implements NamedScreen
         return atLeastOne;
     }
 
-    private static void transferSpells(CrystalImbuerBlockEntity entity, SimpleInventory inventory, ItemStack grimoireStack) {
+    private static void transferSpells(ScrollImbuerBlockEntity entity, SimpleInventory inventory, ItemStack grimoireStack) {
         ItemStack crystalSlotStack;
         NbtCompound spellData;
         int check = 0;

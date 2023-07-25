@@ -2,7 +2,7 @@ package net.alba.oldworld.block.blocks;
 
 import org.jetbrains.annotations.Nullable;
 
-import net.alba.oldworld.block.entity.CrystalImbuerBlockEntity;
+import net.alba.oldworld.block.entity.ScrollImbuerBlockEntity;
 import net.alba.oldworld.registry.OldBlockEntities;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
@@ -78,8 +78,8 @@ public class CrystalImbuerBlock extends BlockWithEntity {
         if (!state.isOf(newState.getBlock())) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
 
-            if (blockEntity instanceof CrystalImbuerBlockEntity) {
-                ItemScatterer.spawn(world, pos, (CrystalImbuerBlockEntity)blockEntity);
+            if (blockEntity instanceof ScrollImbuerBlockEntity) {
+                ItemScatterer.spawn(world, pos, (ScrollImbuerBlockEntity)blockEntity);
                 world.updateComparators(pos,this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -101,12 +101,12 @@ public class CrystalImbuerBlock extends BlockWithEntity {
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new CrystalImbuerBlockEntity(pos, state);
+        return new ScrollImbuerBlockEntity(pos, state);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return world.isClient ? null : checkType(type, OldBlockEntities.CRYSTAL_IMBUER, CrystalImbuerBlockEntity::tick);
+        return world.isClient ? null : checkType(type, OldBlockEntities.CRYSTAL_IMBUER, ScrollImbuerBlockEntity::tick);
     }
 }

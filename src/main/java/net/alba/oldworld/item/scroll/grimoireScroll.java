@@ -14,17 +14,17 @@ import net.minecraft.world.World;
 public class grimoireScroll extends Item {
     private static final String NAME = "magic.oldworld.spell_scroll.";
     private static final String TOOLTIP = "magic.oldworld.spell_scroll.tooltip";
-    private final String spellName;
+    private final String spellKey;
     private final Formatting nameColor;
 
-    public grimoireScroll(Settings settings, String name, Formatting nameColors) {
+    public grimoireScroll(Settings settings, String key, Formatting color) {
         super(settings);
-        this.spellName = name;
-        this.nameColor = nameColors;
+        this.spellKey = key;
+        this.nameColor = color;
     }
 
     public String getSpellKey() {
-        return this.spellName;
+        return this.spellKey;
     }
 
     // public int getColor(int tintIndex) {
@@ -38,7 +38,7 @@ public class grimoireScroll extends Item {
 
     @Override
     public Text getName(ItemStack stack) {
-        return Text.translatable(NAME + spellName).formatted(nameColor);
+        return Text.translatable(NAME + spellKey).formatted(nameColor);
     }
 
     @Environment(EnvType.CLIENT)

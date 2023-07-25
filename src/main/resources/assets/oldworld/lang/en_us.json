@@ -19,7 +19,6 @@
     "item.oldworld.grimoire_basic" : "Old Grimoire",
     "item.oldworld.grimoire_basic.tooltip" : "An old worn-out magic book",
     
-    "magic.oldworld.spell_scroll." : "",
     "magic.oldworld.spell_scroll.tooltip" : "Contains some kind of unknown lost magic",
     "magic.oldworld.spell_scroll.fireorb_c" : "Fire Orb",
     "magic.oldworld.spell_scroll.combustion_c" : "Combustion",
